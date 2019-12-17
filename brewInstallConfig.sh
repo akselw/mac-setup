@@ -2,6 +2,8 @@
 
 brew install bash-completion
 brew install bat
+brew install elm
+brew install elm-format
 brew install gcc
 brew install gettext
 brew install git
@@ -14,6 +16,7 @@ brew install kotlin
 brew install kubernetes-helm
 brew install libmpc
 brew install lua
+brew install maven
 brew install mono
 brew install mpfr
 brew install node
