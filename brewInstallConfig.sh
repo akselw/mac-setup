@@ -30,7 +30,7 @@ brew cask install dropbox
 brew cask install emacs
 brew cask install firefox
 brew cask install google-chrome
-brew tap homebrew/cask-versions && brew cask install google-chrome-canary
+brew cask install google-chrome-canary
 brew cask install intellij-idea
 brew cask install postman
 brew cask install qlcolorcode
