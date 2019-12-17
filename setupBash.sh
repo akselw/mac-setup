@@ -9,6 +9,7 @@ else
 fi
 
 EOL
+  source ~/.bash_profile
 else
   echo 'Det finnes allerede en ~/.bash_profile. Slett eller rename filen'
 fi
