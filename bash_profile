@@ -100,6 +100,14 @@ git_push_new() {
 
 alias gitpn='git_push_new'
 
+open_pull_request() {
+    GITHUB_URL=$(git config --get remote.origin.url)
+    open "${GITHUB_URL%.git}/pull/$(parse_git_branch)"
+}
+
+alias git_open_pr='open_pull_request'
+alias gitpr='git_open_pr'
+
 alias git_stash_unstaged='git stash --keep-index --include-untracked'
 
 alias gitsu='git_stash_unstaged'
