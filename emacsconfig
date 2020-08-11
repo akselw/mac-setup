@@ -7,17 +7,32 @@
 
 (global-set-key (kbd "C-c C-a") 'generatepdf)
 
-
-
 (defun generatepdf () (interactive)(call-process-shell-command (concat "generatepdf " (buffer-file-name)) nil nil nil))
 
 (setq inhibit-splash-screen t)
 
 (package-initialize)
-
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+			 ("melpa" . "https://melpa.org/packages/")))
+
+;; HVIS FILEN FEILER pga use-package: prøv med linjen under (vet ikke om det kommer til å hjelpe da :))
+;; (package-refresh-contents)
+
+
+(require 'package)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+(dolist (package '(monokai-theme ido-vertical-mode elm-mode))
+ (unless (package-installed-p package)
+   (package-install package))
+   (require package))
+
 
 
 (setq mac-option-modifier nil
@@ -92,23 +107,6 @@
 (add-to-list 'ido-ignore-buffers "*Messages*")
 
 (require 'elm-mode)
-
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
-(require 'auto-complete-config)     ; a configuration for auto-complete-mode
-(eval-after-load 'auto-complete-config `(ac-config-default))
-
-(when (file-exists-p "~/.quicklisp/slime-helper.el")
-  (load (expand-file-name "~/.quicklisp/slime-helper.el")))
-
-(setq inferior-lisp-program "sbcl")
-
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
 
 ;; removes scratch message
 
