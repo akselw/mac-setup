@@ -36,6 +36,7 @@ brew cask install google-chrome
 brew cask install google-chrome-canary
 brew cask install hiddenbar
 brew cask install intellij-idea
+brew cask install monitorcontrol
 brew cask install postman
 brew cask install qlcolorcode
 brew cask install qlstephen
