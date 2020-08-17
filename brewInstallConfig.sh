@@ -31,6 +31,7 @@ brew cask install 1password
 brew cask install deckset
 brew cask install dropbox
 brew cask install emacs
+brew cask install figma
 brew cask install firefox
 brew cask install google-chrome
 brew cask install google-chrome-canary
