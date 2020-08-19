@@ -82,7 +82,8 @@ alias gitpr='git_open_pr'
 
 
 alias mci='mvn clean install'
-alias start="npm start"
+alias start='npm start'
+alias Projects='~/Projects'
 
 alias restart='echo "Restarter zsh fra source ~/.zshrc" && source ~/.zshrc'
 
@@ -116,3 +117,7 @@ lines_of_code() {
 
 alias linesofcode="lines_of_code"
 alias loc="lines_of_code"
+
+root() {
+    if [ ! -d "./.git" ] && [ $(pwd) != "/" ] && cd .. && root
+}
