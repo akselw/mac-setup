@@ -82,7 +82,9 @@ alias gitpr='git_open_pr'
 
 
 alias mci='mvn clean install'
+alias n='npm'
 alias start='npm start'
+alias nuse='nvm use'
 alias Projects='~/Projects'
 
 alias restart='echo "Restarter zsh fra source ~/.zshrc" && source ~/.zshrc'
