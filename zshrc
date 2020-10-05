@@ -34,9 +34,9 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 # verify last command using !! before executing
 setopt HIST_VERIFY
-# suggest corrections for mistyped commands
-setopt CORRECT
-setopt CORRECT_ALL
+# Don't suggest corrections for mistyped commands
+unsetopt CORRECT
+unsetopt CORRECT_ALL
 
 
 
