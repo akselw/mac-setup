@@ -84,6 +84,7 @@ alias gitpr='git_open_pr'
 alias mci='mvn clean install'
 alias n='npm'
 alias start='npm start'
+alias s='npm start'
 alias nuse='nvm use'
 alias Projects='~/Projects'
 
