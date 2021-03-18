@@ -41,5 +41,6 @@ brew cask install monitorcontrol
 brew cask install postman
 brew cask install qlcolorcode
 brew cask install qlstephen
+brew cask install responsively
 brew cask install slack
 brew cask install spotify
