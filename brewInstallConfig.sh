@@ -27,20 +27,20 @@ brew install readline
 brew install tig
 brew install watch
 
-brew cask install 1password
-brew cask install deckset
-brew cask install dropbox
-brew cask install emacs
-brew cask install figma
-brew cask install firefox
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install hiddenbar
-brew cask install intellij-idea
-brew cask install monitorcontrol
-brew cask install postman
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install responsively
-brew cask install slack
-brew cask install spotify
+brew install --cask 1password
+brew install --cask deckset
+brew install --cask dropbox
+brew install --cask emacs
+brew install --cask figma
+brew install --cask firefox
+brew install --cask google-chrome
+brew install --cask google-chrome-canary
+brew install --cask hiddenbar
+brew install --cask intellij-idea
+brew install --cask monitorcontrol
+brew install --cask postman
+brew install --cask qlcolorcode
+brew install --cask qlstephen
+brew install --cask responsively
+brew install --cask slack
+brew install --cask spotify
