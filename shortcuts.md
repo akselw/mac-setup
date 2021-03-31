@@ -1,12 +1,17 @@
 # Custom shortcuts
 
-## Alle apper
+## System Preferences
+
+### App Shortcuts
+- `Alt-Cmd <-` Show Previous Tab
+- `Alt-Cmd ->` Show Next Tab
+- `Alt Cmd ,` System Preferences...
+
+### Screenshots
 - Fjerne `Ctrl` fra screenshot med kopiering
-- `Alt-Cmd <-` Forrige fane
-- `Alt-Cmd ->` Neste fane
-- `Cmd <` Forrige vindu i app
-- `Cmd >` Neste vindu i app
-- `Alt Cmd ,` Åpne System Preferences
+
+### Keyboard
+- Move focus to next window `Cmd <`
 
 ## IntelliJ
 - Kommentar: `Shift Cmd ,`
