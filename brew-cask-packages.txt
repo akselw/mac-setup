@@ -1,0 +1,17 @@
+1password
+deckset
+dropbox
+emacs
+figma
+firefox
+google-chrome
+google-chrome-canary
+hiddenbar
+intellij-idea
+monitorcontrol
+postman
+qlcolorcode
+qlstephen
+responsively
+slack
+spotify

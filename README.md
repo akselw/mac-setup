@@ -14,7 +14,7 @@
     ```
 
 3. Launch 1Password
-4. Last ned Magnet fra App Stor
+4. Last ned Magnet fra App Store
 5. Launch IntelliJ
     - File > Manage IDE Settings > Settings Repository
     - https://github.com/akselw/intellij-settings
