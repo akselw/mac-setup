@@ -6,6 +6,7 @@
 - `Alt-Cmd <-` Show Previous Tab
 - `Alt-Cmd ->` Show Next Tab
 - `Alt Cmd ,` System Preferences...
+- `Ctrl Option L` Lock Screen
 
 ### Screenshots
 - Fjerne `Ctrl` fra screenshot med kopiering
