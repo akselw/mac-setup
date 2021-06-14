@@ -10,8 +10,6 @@ hiddenbar
 intellij-idea
 monitorcontrol
 postman
-qlcolorcode
-qlstephen
 responsively
 slack
 spotify
