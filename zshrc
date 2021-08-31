@@ -61,6 +61,8 @@ autoload -Uz compinit && compinit
 
 ### ALIAS
 
+alias restart='echo "Restarter zsh fra source ~/.zshrc" && source ~/.zshrc'
+
 alias ll='ls -l'
 alias emacs='open /Applications/Emacs.app'
 
@@ -70,6 +72,12 @@ alias gitb='git branch'
 alias git_stash_unstaged='git stash --keep-index --include-untracked'
 alias gitsu='git_stash_unstaged'
 alias git_delete_merged='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+
+main_branch() {
+    echo `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`
+}
+
+alias gitm='git checkout $(main_branch)'
 
 
 open_pull_request() {
@@ -87,8 +95,6 @@ alias start='npm start'
 alias s='npm start'
 alias nuse='nvm use'
 alias Projects='~/Projects'
-
-alias restart='echo "Restarter zsh fra source ~/.zshrc" && source ~/.zshrc'
 
 kill_port() {
     if [ -z "$1" ]
