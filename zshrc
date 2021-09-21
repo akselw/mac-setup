@@ -95,6 +95,7 @@ alias start='npm start'
 alias s='npm start'
 alias nuse='nvm use'
 alias Projects='~/Projects'
+alias P='Projects'
 
 kill_port() {
     if [ -z "$1" ]
