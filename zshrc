@@ -79,7 +79,6 @@ main_branch() {
 
 alias gitm='git checkout $(main_branch)'
 
-
 open_pull_request() {
     GITHUB_URL=$(git config --get remote.origin.url)
     open "${GITHUB_URL%.git}/pull/$(parse_git_branch)"
@@ -113,7 +112,7 @@ kill_port() {
 	fi
     fi
 }
-
+alias week="date +%V"
 alias killport="kill_port"
 
 lines_of_code() {
