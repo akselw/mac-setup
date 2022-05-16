@@ -113,6 +113,8 @@ kill_port() {
     fi
 }
 alias week="date +%V"
+alias isodate='date +'\''%Y-%m-%dT%H:%M:%SZ'\'
+
 alias killport="kill_port"
 
 lines_of_code() {
