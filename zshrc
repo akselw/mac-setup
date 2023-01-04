@@ -133,6 +133,7 @@ root() {
 }
 
 path+=('/Users/aksel/.local/bin')
+path+=('$HOME/.cargo/env')
 export PATH
 
 export NVM_DIR="$HOME/.nvm"
