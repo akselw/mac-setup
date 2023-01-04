@@ -72,6 +72,7 @@ alias gitb='git branch'
 alias git_stash_unstaged='git stash --keep-index --include-untracked'
 alias gitsu='git_stash_unstaged'
 alias git_delete_merged='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+alias gitpn='git push -u origin HEAD'
 
 main_branch() {
     echo `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`
