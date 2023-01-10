@@ -15,6 +15,7 @@ kubernetes-helm
 libmpc
 lua
 maven
+meetingbar
 mono
 mpfr
 nvm
