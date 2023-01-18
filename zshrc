@@ -97,6 +97,10 @@ alias nuse='nvm use'
 alias Projects='~/Projects'
 alias P='Projects'
 
+nlang() {
+    npm run language:$1
+}
+
 kill_port() {
     if [ -z "$1" ]
     then
