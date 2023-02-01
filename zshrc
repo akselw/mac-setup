@@ -94,8 +94,19 @@ alias n='npm'
 alias start='npm start'
 alias s='npm start'
 alias nuse='nvm use'
-alias Projects='~/Projects'
-alias P='Projects'
+
+cd_to_Projects() {
+    cd ~/Projects/$1
+}
+
+_cd_to_Projects_completion2() {
+    _alternative "dirs:user directory:($(ls ~/Projects))"
+}
+
+alias P='cd_to_Projects'
+
+compdef _cd_to_Projects_completion2 cd_to_Projects
+compdef P=cd_to_Projects
 
 nlang() {
     npm run language:$1
