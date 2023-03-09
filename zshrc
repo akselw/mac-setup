@@ -88,6 +88,7 @@ open_pull_request() {
 alias git_open_pr='open_pull_request'
 alias gitpr='git_open_pr'
 
+alias gith='open $(git remote get-url origin)'
 
 alias mci='mvn clean install'
 alias n='npm'
