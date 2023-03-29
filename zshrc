@@ -75,7 +75,15 @@ alias git_delete_merged='git branch --merged | egrep -v "(^\*|master)" | xargs g
 alias gitpn='git push -u origin HEAD'
 
 main_branch() {
-    echo `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`
+    git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+}
+
+git_rm_merged() {
+    git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == "[gone]"{ print $1 }' | xargs -r git branch -D
+}
+
+git_sync() {
+    git switch $(main_branch) && git pull --prune && git_rm_merged
 }
 
 alias gitm='git checkout $(main_branch)'
