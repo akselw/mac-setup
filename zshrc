@@ -73,6 +73,8 @@ alias git_stash_unstaged='git stash --keep-index --include-untracked'
 alias gitsu='git_stash_unstaged'
 alias git_delete_merged='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
 alias gitpn='git push -u origin HEAD'
+alias gam='git commit --amend'
+alias gamno='git commit --amend --no-edit'
 
 main_branch() {
     git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
