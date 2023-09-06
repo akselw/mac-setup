@@ -88,9 +88,11 @@ git_sync() {
 
 alias gitm='git checkout $(main_branch)'
 
+alias current_git_branch='git rev-parse --abbrev-ref HEAD'
+
 open_pull_request() {
     GITHUB_URL=$(git config --get remote.origin.url)
-    open "${GITHUB_URL%.git}/pull/$(parse_git_branch)"
+    open "${GITHUB_URL%.git}/pull/new/$(current_git_branch)"
 }
 
 alias git_open_pr='open_pull_request'
@@ -159,6 +161,7 @@ root() {
 }
 
 path+=('/Users/aksel/.local/bin')
+path+=('/Applications/IntelliJ IDEA.app/Contents/MacOS')
 path+=('$HOME/.cargo/env')
 export PATH
 
@@ -167,6 +170,30 @@ export PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+_deploy-to-env-vy() {
+    version=""
+    if [ -z "$2" ]
+    then
+        vared -p 'Version number: ' -c version
+    else
+        version=$2
+    fi
+    AWS_DEFAULT_REGION=eu-central-1 AWS_PROFILE=omni-admin ./deploy.sh $1 $version
+}
+
+test1-deploy() {
+    _deploy-to-env-vy test1 $1
+}
+
+test4-deploy() {
+    _deploy-to-env-vy test4 $1
+}
+
+prod-deploy() {
+    _deploy-to-env-vy prod $1
+}
 
 # direnv setup
 eval "$(direnv hook zsh)"
