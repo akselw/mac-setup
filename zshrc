@@ -65,6 +65,7 @@ alias restart='echo "Restarter zsh fra source ~/.zshrc" && source ~/.zshrc'
 
 alias ll='ls -l'
 alias emacs='open /Applications/Emacs.app'
+alias tf="terraform"
 
 alias gits='git status'
 alias gitco='git checkout'
