@@ -68,7 +68,7 @@ alias emacs='open /Applications/Emacs.app'
 alias tf="terraform"
 
 alias gits='git status'
-alias gitco='git checkout'
+alias gitco='git switch'
 alias gitb='git branch'
 alias git_stash_unstaged='git stash --keep-index --include-untracked'
 alias gitsu='git_stash_unstaged'
