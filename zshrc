@@ -126,6 +126,8 @@ nlang() {
     npm run language:$1
 }
 
+alias lurl='npm run launch-urls'
+
 kill_port() {
     if [ -z "$1" ]
     then
