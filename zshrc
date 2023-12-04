@@ -188,8 +188,8 @@ _deploy-to-env-vy() {
     AWS_DEFAULT_REGION=eu-central-1 AWS_PROFILE=omni-admin ./deploy.sh $1 $version
 }
 
-test1-deploy() {
-    _deploy-to-env-vy test1 $1
+test2-deploy() {
+    _deploy-to-env-vy test2 $1
 }
 
 test4-deploy() {
