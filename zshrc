@@ -168,6 +168,7 @@ root() {
 path+=('/Users/aksel/.local/bin')
 path+=('/Applications/IntelliJ IDEA.app/Contents/MacOS')
 path+=('$HOME/.cargo/env')
+path+=('/opt/homebrew/bin')
 export PATH
 
 # eval "$(jenv init -)"
