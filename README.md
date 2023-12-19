@@ -1,21 +1,32 @@
 # Set up Mac
 
-1. Set up iCloud 
-2. Installer Brew med:
+1. Set up TouchID
+2. Set up iCloud
+3. Installer Brew med:
 
     ```
     ./installBrew.sh
     ```
 
-3. Installer ting gjennom Brew:
+4. Installer ting gjennom Brew:
 
     ```
     ./brewInstallConfig.sh
     ```
 
-3. Launch 1Password
-4. Last ned Magnet fra App Store
-5. Launch IntelliJ
+5. Logg inn i Dropbox for å begynne å synce
+6. Launch 1Password
+7. Last ned Magnet fra App Store
+8. Inconsolata font
+   - Last ned font fra [Google Fonts](https://fonts.google.com/specimen/Inconsolata)
+   - Installer font (ved å dobbeltklikke på `.ttf)
+   - Legg til i Terminal > Settings > Profiles > Basic > Font: Inconsolata Regular 14pt
+9. Sett opp ssh-key:
+   - `ssh-keygen -t rsa`
+   - `cat ~/.ssh/id_rsa.pub`
+   - Legg til key i [GitHub settings](https://github.com/settings/keys)
+10. Launch IntelliJ
+    - Last ned Plugin "Settings Repository"
     - File > Manage IDE Settings > Settings Repository
     - https://github.com/akselw/intellij-settings
     - Overwrite Local
@@ -26,19 +37,20 @@
         - Personal access tokens
         - Generate new token
         - repo og workflow
-6. Setup zsh med:
+11. Setup zsh med:
    
     ```
     ./setupZsh.sh
     ```
 
-7. Fiks shortcuts for Mac
-8. Setup Emacs ved å endre ~/.emacs til følgende:
+12. Fiks shortcuts for Mac: [instruksjoner](./shortcuts.md)
+13. Setup Emacs ved å endre ~/.emacs til følgende:
 
     ```
     (load-file "~/Projects/mac-setup/emacsconfig")
     ```
-9. Setup git med:
+
+14. Setup git med:
 
     ```
     ./setupGit.sh

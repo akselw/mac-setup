@@ -31,4 +31,5 @@ System Preferences:
 ### Safari
 
 - General > Safari opens with: All non-private windows from last session
-- Autofill > AutoFill web forms: User names and passwords: false
+- Autofill > AutoFill web forms: User names and passwords: `false`
+- Advanced > Smart Search Field: Show full website address: `true`
