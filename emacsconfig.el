@@ -11,16 +11,15 @@
 
 (setq inhibit-splash-screen t)
 
-(package-initialize)
+(require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+			 ("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")))
+(package-initialize)
 
-;; HVIS FILEN FEILER pga use-package: prøv med linjen under (vet ikke om det kommer til å hjelpe da :))
+;; !Første gang man installerer emacs må man kommentere ut dette!
 ;; (package-refresh-contents)
 
-
-(require 'package)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
