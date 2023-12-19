@@ -1,14 +1,17 @@
 1password
+alfred
 deckset
 dropbox
 emacs
 figma
 firefox
+gifox
 google-chrome
 google-chrome-canary
 hiddenbar
 intellij-idea
 monitorcontrol
+obsidian
 postman
 responsively
 slack
