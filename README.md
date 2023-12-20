@@ -44,11 +44,14 @@
     ```
 
 12. Fiks shortcuts for Mac: [instruksjoner](./shortcuts.md)
-13. Setup Emacs ved å endre ~/.emacs til følgende:
-
+13. Setup Emacs:
+    - Endre ~/.emacs til følgende:
     ```
     (load-file "~/Projects/mac-setup/emacsconfig")
     ```
+    - Start emacs
+    - Skriv `M-x`, så `package-refresh-contents` (`M-x` betyr `Escape`, så `x`)
+    - Restart emacs for å sjekke at det fungerte
 
 14. Setup git med:
 
