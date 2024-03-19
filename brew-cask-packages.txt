@@ -1,6 +1,7 @@
 1password
 alfred
 deckset
+discord
 dropbox
 emacs
 figma
