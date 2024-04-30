@@ -47,7 +47,7 @@
 13. Setup Emacs:
     - Endre ~/.emacs til følgende:
     ```
-    (load-file "~/Projects/mac-setup/emacsconfig")
+    (load-file "~/Projects/mac-setup/emacsconfig.el")
     ```
     - Start emacs
     - Skriv `M-x`, så `package-refresh-contents` (`M-x` betyr `Escape`, så `x`)
