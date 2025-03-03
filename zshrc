@@ -123,6 +123,20 @@ alias P='cd_to_Projects'
 compdef _cd_to_Projects_completion2 cd_to_Projects
 compdef P=cd_to_Projects
 
+
+cd_to_Monorepo() {
+    cd ~/Projects/kss-monorepo/$1
+}
+
+_cd_to_Monorepo_completion2() {
+    _alternative "dirs:user directory:($(ls ~/Projects/kss-monorepo/))"
+}
+
+alias M='cd_to_Monorepo'
+
+compdef _cd_to_Monorepo_completion2 cd_to_Monorepo
+compdef M=cd_to_Monorepo
+
 nlang() {
     npm run language:$1
 }
