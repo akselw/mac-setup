@@ -107,6 +107,7 @@ alias mci='mvn clean install'
 alias n='npm'
 alias start='npm start'
 alias s='npm start'
+alias d='npm run dev'
 alias nr='npm run'
 alias nuse='nvm use'
 
