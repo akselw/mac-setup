@@ -193,6 +193,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+awslogin() {
+    PROFILE_NAME="${1:-dev}"
+
+    if [[ -z "$1" ]]; then
+        echo "No profile specified. Using default profile 'dev'."
+    fi
+
+    aws sso login --profile "$PROFILE_NAME"
+}
 
 _deploy-to-env-vy() {
     version=""
