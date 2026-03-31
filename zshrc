@@ -17,8 +17,8 @@ PROMPT=$'\n'"%~ \$vcs_info_msg_0_"$'\n'"$ "
 setopt AUTO_CD
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 SAVEHIST=5000
-HISTSIZE=2000
-# share history across multiple zsh sessions
+HISTSIZE=10000
+# don't share history across multiple zsh sessions
 setopt NO_SHARE_HISTORY
 # append to history
 setopt APPEND_HISTORY
@@ -43,19 +43,19 @@ unsetopt CORRECT_ALL
 ### COMPLETION SYSTEM
 
 # case insensitive path-completion
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 # partial completion suggestions
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 
+# initialize the zsh completion system
+autoload -Uz compinit && compinit
+
 # load bashcompinit for some old bash completions
 autoload bashcompinit && bashcompinit
 
 [[ -r ~/Projects/autopkg_complete/autopkg ]] && source ~/Projects/autopkg_complete/autopkg
-
-# initialize the zsh completion system
-autoload -Uz compinit && compinit
 
 
 
@@ -72,7 +72,6 @@ alias gitco='git switch'
 alias gitb='git branch'
 alias git_stash_unstaged='git stash --keep-index --include-untracked'
 alias gitsu='git_stash_unstaged'
-alias git_delete_merged='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
 alias gitpn='git push -u origin HEAD'
 alias gam='git commit --amend'
 alias gamno='git commit --amend --no-edit'
@@ -89,7 +88,7 @@ git_sync() {
     git switch $(main_branch) && git pull --prune && git_rm_merged
 }
 
-alias gitm='git checkout $(main_branch)'
+alias gitm='git switch $(main_branch)'
 
 alias current_git_branch='git rev-parse --abbrev-ref HEAD'
 
@@ -156,7 +155,7 @@ kill_port() {
 	    echo "No process using port $1"
 	else
 	    echo "Killing process using port $1"
-	    kill $PID
+	    echo $PID | xargs kill
 	fi
     fi
 }
@@ -183,15 +182,19 @@ root() {
 
 path+=('/Users/aksel/.local/bin')
 path+=('/Applications/IntelliJ IDEA.app/Contents/MacOS')
-path+=('$HOME/.cargo/env')
+path+=("$HOME/.cargo/bin")
 path+=('/opt/homebrew/bin')
 export PATH
+
+[ -s "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # eval "$(jenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 awslogin() {
     PROFILE_NAME="${1:-dev}"
@@ -201,29 +204,6 @@ awslogin() {
     fi
 
     aws sso login --profile "$PROFILE_NAME"
-}
-
-_deploy-to-env-vy() {
-    version=""
-    if [ -z "$2" ]
-    then
-        vared -p 'Version number: ' -c version
-    else
-        version=$2
-    fi
-    AWS_DEFAULT_REGION=eu-central-1 AWS_PROFILE=omni-admin ./deploy.sh $1 $version
-}
-
-test2-deploy() {
-    _deploy-to-env-vy test2 $1
-}
-
-test4-deploy() {
-    _deploy-to-env-vy test4 $1
-}
-
-prod-deploy() {
-    _deploy-to-env-vy prod $1
 }
 
 # direnv setup
