@@ -109,6 +109,7 @@ alias s='npm start'
 alias d='npm run dev'
 alias nr='npm run'
 alias nuse='nvm use'
+alias c='claude'
 
 cd_to_Projects() {
     cd ~/Projects/$1
@@ -180,7 +181,7 @@ root() {
     if [ ! -d "./.git" ] && [ $(pwd) != "/" ] && cd .. && root
 }
 
-path+=('/Users/aksel/.local/bin')
+path+=("$HOME/.local/bin")
 path+=('/Applications/IntelliJ IDEA.app/Contents/MacOS')
 path+=("$HOME/.cargo/bin")
 path+=('/opt/homebrew/bin')
