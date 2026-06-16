@@ -104,10 +104,12 @@ alias gith='open $(git remote get-url origin)'
 
 alias mci='mvn clean install'
 alias n='npm'
-alias start='npm start'
-alias s='npm start'
-alias d='npm run dev'
 alias nr='npm run'
+alias p='pnpm'
+alias pr='pnpm run'
+alias start='pnpm start'
+alias s='pnpm start'
+alias d='pnpm dev'
 alias nuse='nvm use'
 alias c='claude'
 
@@ -209,6 +211,32 @@ awslogin() {
 
 # direnv setup
 eval "$(direnv hook zsh)"
+
+###-begin-pnpm-completion-###
+if type compdef &>/dev/null; then
+  _pnpm_completion () {
+    local reply
+    local si=$IFS
+    local _pnpm_line="${(j: :)words[1,CURRENT]}"
+
+    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$_pnpm_line" COMP_POINT="${#_pnpm_line}" SHELL=zsh pnpm completion-server -- "${words[@]}"))
+    IFS=$si
+
+    if [ "$reply" = "__tabtab_complete_files__" ]; then
+      _files
+    else
+      _describe 'values' reply
+    fi
+  }
+
+  if [[ $zsh_eval_context == *func ]]; then
+    _pnpm_completion "$@"
+  else
+    compdef _pnpm_completion pnpm
+  fi
+fi
+
+###-end-pnpm-completion-###
 
 ###-begin-npm-completion-###
 #
