@@ -211,6 +211,13 @@ awslogin() {
     aws sso login --profile "$PROFILE_NAME"
 }
 
+reset_docker () {
+    colima stop
+    colima start
+    docker network prune -f
+    docker container prune -f
+}
+
 # direnv setup
 eval "$(direnv hook zsh)"
 
