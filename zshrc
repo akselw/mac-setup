@@ -110,6 +110,7 @@ alias pr='pnpm run'
 alias start='pnpm start'
 alias s='pnpm start'
 alias d='pnpm dev'
+alias v='pnpm fast-validate'
 alias nuse='nvm use'
 alias c='claude'
 
