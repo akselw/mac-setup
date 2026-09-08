@@ -123,6 +123,14 @@ git_md() {
   git log "${range[@]}" --reverse --format='%w(0,0,2)- %B' | sed '/^$/d'
 }
 
+_git_md() {
+  (( CURRENT > 2 )) && return 1
+  local -a branches
+  branches=(${(f)"$(git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null)"})
+  _describe -t branches 'branch' branches
+}
+compdef _git_md git_md
+
 alias mci='mvn clean install'
 alias n='npm'
 alias nr='npm run'
