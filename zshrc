@@ -104,16 +104,23 @@ alias gith='open $(git remote get-url origin)'
 
 git_md() {
   if [[ -z $1 ]]; then
-    print -u2 "usage: git_md <number-of-commits>"
+    print -u2 "usage: git_md <number-of-commits|revision>"
     return 1
   fi
 
-  if [[ $1 != <-> ]]; then
-    print -u2 "git_md: '$1' is not a number\nusage: git_md <number-of-commits>"
+  local -a range
+  if [[ $1 == <-> ]]; then
+    range=(-n "$1")
+  elif [[ $1 == *..* ]]; then
+    range=("$1")
+  elif git rev-parse --verify --quiet "$1^{commit}" >/dev/null; then
+    range=("$1..HEAD")
+  else
+    print -u2 "git_md: '$1' is not a number or a known revision"
     return 1
   fi
 
-  git log -n "$1" --reverse --format='%w(0,0,2)- %B' | sed '/^$/d'
+  git log "${range[@]}" --reverse --format='%w(0,0,2)- %B' | sed '/^$/d'
 }
 
 alias mci='mvn clean install'
