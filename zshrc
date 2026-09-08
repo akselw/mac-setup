@@ -102,6 +102,20 @@ alias gitpr='git_open_pr'
 
 alias gith='open $(git remote get-url origin)'
 
+git_md() {
+  if [[ -z $1 ]]; then
+    print -u2 "usage: git_md <number-of-commits>"
+    return 1
+  fi
+
+  if [[ $1 != <-> ]]; then
+    print -u2 "git_md: '$1' is not a number\nusage: git_md <number-of-commits>"
+    return 1
+  fi
+
+  git log -n "$1" --reverse --format='%w(0,0,2)- %B' | sed '/^$/d'
+}
+
 alias mci='mvn clean install'
 alias n='npm'
 alias nr='npm run'
