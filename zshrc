@@ -248,9 +248,6 @@ reset_docker () {
     docker container prune -f
 }
 
-# direnv setup
-eval "$(direnv hook zsh)"
-
 ###-begin-pnpm-completion-###
 if type compdef &>/dev/null; then
   _pnpm_completion () {
