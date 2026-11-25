@@ -13,6 +13,7 @@ hiddenbar
 intellij-idea
 monitorcontrol
 obsidian
+podman-desktop
 postman
 responsively
 slack

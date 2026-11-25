@@ -242,8 +242,8 @@ awslogin() {
 }
 
 reset_docker () {
-    colima stop
-    colima start
+    podman machine stop
+    podman machine start
     docker network prune -f
     docker container prune -f
 }
